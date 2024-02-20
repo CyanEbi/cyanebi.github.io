@@ -1,0 +1,22 @@
+body {
+  background-color: beige;
+  text-align: center;
+}
+
+h1 {
+  color: navy;
+}
+
+.item_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 20px;
+  justify-content: center;
+}
+
+.item_grid > div {
+  background-color: cyan;
+  border: 2px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+}
