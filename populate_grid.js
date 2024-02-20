@@ -1,13 +1,20 @@
-for (let i=1; i<= 10; i++) {
-    createItem(i);
+populateGrid();
+
+async function populateGrid() {
+    const response = await fetch("item_list.json");
+    const list = await response.json();
+
+    for (const item in list) {
+        fetch(`Items/${list[item]}.json`)
+            .then(response => response.json())
+            .then(data => createItem(data));
+    }
 }
 
-function createItem(text) {
+function createItem(data) {
     const item = document.createElement("div");
-    item.appendChild(document.createTextNode(text));
+    item.appendChild(document.createTextNode(data.english));
+    item.appendChild(document.createTextNode(data.romaji));
+    item.appendChild(document.createTextNode(data.japanese));
     document.getElementById("item_grid").appendChild(item);
 }
-
-fetch("Items/A Letter to Momo.json")
-    .then(response => response.json())
-    .then(data => createItem(data.english));
