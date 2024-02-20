@@ -5,7 +5,7 @@ async function populateGrid() {
     const list = await response.json();
 
     for (const item in list) {
-        fetch(`Items/${list[item]}.json`)
+        await fetch(`Items/${list[item]}.json`)
             .then(response => response.json())
             .then(data => createItem(data));
     }
@@ -13,8 +13,13 @@ async function populateGrid() {
 
 function createItem(data) {
     const item = document.createElement("div");
-    item.appendChild(document.createTextNode(data.english));
-    item.appendChild(document.createTextNode(data.romaji));
-    item.appendChild(document.createTextNode(data.japanese));
+    item.innerHTML = `
+    <img src="${data.image}">
+    <h3>${data.english}</h3>
+    <p>${data.romaji}</p>
+    <p>${data.japanese}</p>
+    <a href="${data.mal}" target="_blank">MAL</a>
+    <a href="${data.anilist}" target="_blank">Anilist</a>
+    `
     document.getElementById("item_grid").appendChild(item);
 }
