@@ -6,6 +6,7 @@ async function populateGrid() {
     
     const item_grid = document.getElementById("item_grid");
     
+    // Generate all items asynchronously while maintaining sorting order
     const len = list.length;
     const item_list = Array(len);
     const promise_list = Array(len);
@@ -15,12 +16,9 @@ async function populateGrid() {
             .then(data => item_list[i] = createItem(item_grid, data));
     }
 
-    
+    // Populate the grid when all items are generated
     await Promise.all(promise_list);
-    console.log(item_list);
-
     for (let i = 0; i < len; i++) {
-        console.log(item_list[i]);
         item_grid.appendChild(item_list[i]);
     }
 }
