@@ -18,7 +18,7 @@ function addItem(item_grid, data) {
     item.className = "item_container";
     item.innerHTML = `
     <div class="item">
-        <div class="image_container">
+        <div class="image_container" style="cursor: pointer;" onclick='window.location="${data.download}";'>
             <img src="${data.image}">
         </div>
         <h3>${data.english}</h3>
