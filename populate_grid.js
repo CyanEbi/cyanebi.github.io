@@ -18,12 +18,16 @@ function addItem(item_grid, data) {
     item.className = "item_container";
     item.innerHTML = `
     <div class="item">
-        <img src="${data.image}" height=350px>
+        <div class="image_container">
+            <img src="${data.image}">
+        </div>
         <h3>${data.english}</h3>
         <p>${data.romaji}</p>
         <p>${data.japanese}</p>
-        <a href="${data.mal}" target="_blank">MAL</a>
-        <a href="${data.anilist}" target="_blank">Anilist</a>
+        <div>
+            <a href="${data.mal}" target="_blank">MAL</a>
+            <a href="${data.anilist}" target="_blank">Anilist</a>
+        </div>
     </div>
     `
     item_grid.appendChild(item);
