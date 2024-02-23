@@ -19,7 +19,7 @@ function addItem(item_grid, data) {
     item.innerHTML = `
     <div class="item">
         <div class="image_container" style="cursor: pointer;" onclick='window.location="${data.download}";'>
-            <img src="${data.image}">
+            <img src="${data.image}" loading="lazy">
         </div>
         <h3>${data.english}</h3>
         <p>${data.romaji}</p>
