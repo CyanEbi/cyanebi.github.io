@@ -1,7 +1,7 @@
 populateGrid();
 
 async function populateGrid() {
-    const response = await fetch("item_list.json");
+    const response = await fetch("item_list.json"); // If I define a variable as "await [something]" does the function halt until fetch is done or have I created a race condition?
     const list = await response.json();
     
     const item_grid = document.getElementById("item_grid");
@@ -28,7 +28,7 @@ function createItem(item_grid, data) {
     item.className = "item_container";
     item.innerHTML = `
     <div class="item">
-        <div class="image_container" style="cursor: pointer;" onclick='window.location="${data.download}";'>
+        <div class="image_container" style="cursor: pointer;" onclick="getDirectDownload('${data.download}');">
             <img src="${data.image}">
         </div>
         <h3>${data.english}</h3>
@@ -41,4 +41,12 @@ function createItem(item_grid, data) {
     </div>
     `
     return item;
+}
+
+async function getDirectDownload(link) {
+    const html = await (await fetch(link)).text();
+    const link_entry = html.match(/"downloadlink": "https.*zip"/)[0];
+    const direct_link = link_entry.split(" ")[1];
+    const clean_direct_link = direct_link.replaceAll("\"", "").replaceAll("\\", "")
+    open(clean_direct_link, "_self");
 }
