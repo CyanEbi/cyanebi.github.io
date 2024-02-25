@@ -3,6 +3,11 @@ body {
   text-align: center;
 }
 
+.soyjaks {
+  position: relative;
+  bottom: 370px;
+}
+
 h1 {
   color: navy;
 }

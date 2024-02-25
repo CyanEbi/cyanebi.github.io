@@ -1,7 +1,9 @@
+const current_folder = "condensedAudio/";
+
 populateGrid();
 
 async function populateGrid() {
-    const response = await fetch("item_list.json"); // If I define a variable as "await [something]" does the function halt until fetch is done or have I created a race condition?
+    const response = await fetch(`${current_folder}item_list.json`); // If I define a variable as "await [something]" does the function halt until fetch is done or have I created a race condition?
     const list = await response.json();
     
     const item_grid = document.getElementById("item_grid");
@@ -11,7 +13,7 @@ async function populateGrid() {
     const item_list = Array(len);
     const promise_list = Array(len);
     for (let i = 0; i < len; i++) {
-        promise_list[i] = fetch(`Items/${list[i]}.json`)
+        promise_list[i] = fetch(`${current_folder}items/${list[i]}.json`)
             .then(response => response.json())
             .then(data => item_list[i] = createItem(item_grid, data));
     }
