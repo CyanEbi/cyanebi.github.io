@@ -8,10 +8,6 @@ body {
   bottom: 370px;
 }
 
-h1 {
-  color: navy;
-}
-
 .item_grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
@@ -30,7 +26,7 @@ h1 {
 }
 
 .item {
-  background-color: #00ffff;
+  background-color: #55ffff;
   border: 2px solid #4799be;
   border-radius: 10px;
   width: 100%;
