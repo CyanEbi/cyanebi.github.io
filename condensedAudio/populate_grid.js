@@ -36,7 +36,7 @@ function createItem(item_grid, data) {
         <h3>${data.english}</h3>
         <p>${data.romaji}</p>
         <p>${data.japanese}</p>
-        <div>
+        <div class="links">
             <a href="${data.mal}" target="_blank">MAL</a>
             <a href="${data.anilist}" target="_blank">Anilist</a>
         </div>

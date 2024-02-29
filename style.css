@@ -1,6 +1,10 @@
 body {
-  background-color: #e2daa7;
+  background-color: #d1ca9b;
   text-align: center;
+}
+
+h1 {
+  margin: 40px;
 }
 
 .soyjaks {
@@ -26,7 +30,7 @@ body {
 }
 
 .item {
-  background-color: #55ffff;
+  background-color: #4fe0e0;
   border: 2px solid #4799be;
   border-radius: 10px;
   width: 100%;
@@ -54,10 +58,16 @@ body {
   height: 100%;
 }
 
-.item p {
-  margin: 5px;
+.item h3 {
+  margin: 10px auto 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.item h3 {
-  margin: 10px 5px 5px 5px;
+.item p {
+  margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.links {
+  margin-top: 5px;
 }
